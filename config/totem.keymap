@@ -33,6 +33,15 @@
 };
 
 / {
+     behaviors {
+        mt_pinky: tap_dance_0 {
+            compatible = "zmk,behavior-tap-dance";
+            label = "MT_PINKY";
+            #binding-cells = <2>;
+            tapping-term-ms = <250>;
+            bindings = <&kp>, <&kp>;
+        };
+     };
 
      combos {
             compatible = "zmk,combos";
@@ -47,9 +56,21 @@
                 layers = <0>;
                 bindings = <&kp LBKT>;
             };
+            combo_rbkt {
+                timeout-ms = <30>;
+                key-positions = <5 6 7>;
+                layers = <0>;
+                bindings = <&kp LBKT>;
+            };
             combo_lpar {
                 timeout-ms = <30>;
                 key-positions = <2 3>;
+                layers = <0>;
+                bindings = <&kp LPAR>;
+            };
+            combo_rpar {
+                timeout-ms = <30>;
+                key-positions = <1 2 3>;
                 layers = <0>;
                 bindings = <&kp LPAR>;
             };
@@ -59,11 +80,23 @@
                 layers = <0>;
                 bindings = <&kp LBRC>;
             };
+            combo_rbrc {
+                timeout-ms = <30>;
+                key-positions = <23 24 25>;
+                layers = <0>;
+                bindings = <&kp LBRC>;
+            };
             combo_game {
                 timeout-ms = <30>;
                 key-positions = <0 1 2 3>;
                 layers = <0>;
                 bindings = <&to GAME>;
+            };
+            combo_base {
+                timeout-ms = <30>;
+                key-positions = <0 1 2 3>;
+                layers = <1 2 3 4 5 6 7>;
+                bindings = <&to BASE>;
             };
     };
 
@@ -101,10 +134,10 @@ label= "BASE_APT"                          ;
  bindings = <
 // ╷           ╷           ╷           ╷           ╷           ╷           ╷   ╷           ╷           ╷           ╷           ╷           ╷           ╷
 
-                &kp W       &kp G       &kp D       &kp F       &kp B           &kp Q     &kp L         &kp U       &kp O       &kp Y
-                &mt LGUI R  &mt LALT S  &mt LSHFT T &mt LCTRL H &kp K           &kp J     &mt RCTRL N   &mt RSHFT E &mt RALT A  &mt RGUI I
-    &kp SEMI    &kp X       &kp C       &kp M       &kp P       &kp V           &kp Z     &kp COMMA     &kp DOT     &kp SQT     &kp FSLH     &to NAV
-                                        &to SYM     &kp SPACE   &kp ESC         &kp RET   &to NUM       &kp TAB
+                &kp W             &kp G       &kp D       &kp F       &kp B           &kp Q     &kp L         &kp U       &kp O       &kp Y
+                &mt_pinky LGUI R  &mt LALT S  &mt LSHFT T &mt LCTRL H &kp K           &kp J     &mt RCTRL N   &mt RSHFT E &mt RALT A  &mt_pinky RGUI I
+    &kp SEMI    &kp X             &kp C       &kp M       &kp P       &kp V           &kp Z     &kp COMMA     &kp DOT     &kp SQT     &kp FSLH     &to NAV
+                                        &to SYM     &kp SPACE   &kp ESC               &kp RET   &to NUM       &kp TAB
                         >;
                 };
 
@@ -165,8 +198,7 @@ label= "SYM"                               ;
 
                 function_layer {
 // ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-label= "FUN"                               ;
-// ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
 //             ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓   ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓
 //             ┃   RESET   ┃ BT CLEAR  ┃  OUT TOG  ┃           ┃           ┃   ┃           ┃    F7     ┃    F8     ┃    F9     ┃    F12    ┃
 //             ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫
@@ -179,7 +211,7 @@ label= "FUN"                               ;
  bindings = <
 // ╷           ╷           ╷           ╷           ╷           ╷           ╷   ╷           ╷           ╷           ╷           ╷           ╷           ╷
 
-                &sys_reset  &bt BT_CLR  &out OUT_TOG &trans      &trans          &kp DEL     &kp F7      &kp F8      &kp F9      &kp F12
+                &sys_reset  &bt BT_CLR  &out OUT_USB &out OUT_BLE &trans          &kp DEL     &kp F7      &kp F8      &kp F9      &kp F12
                 &bootloader &kp LALT    &kp LSHFT    &kp LCTRL   &trans          &kp INS     &kp F4      &kp F5      &kp F6      &kp F11  
     &trans      &trans      &trans      &bt BT_PRV   &bt BT_NXT  &trans                &trans      &kp F1      &kp F2      &kp F3      &kp F10     &trans         
                                         &trans      &trans      &trans                 &trans      &trans      &trans      
