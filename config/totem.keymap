@@ -26,22 +26,13 @@
 #define NAVOH 7
 
 &mt {
-  quick-tap-ms = <100>;
+  quick-tap-ms = <90>;
   global-quick-tap;
   flavor = "tap-preferred";
-  tapping-term-ms = <170>;
+  tapping-term-ms = <200>;
 };
 
 / {
-     behaviors {
-        mt_pinky: tap_dance_0 {
-            compatible = "zmk,behavior-tap-dance";
-            label = "MT_PINKY";
-            #binding-cells = <2>;
-            tapping-term-ms = <250>;
-            bindings = <&kp>, <&kp>;
-        };
-     };
 
      combos {
             compatible = "zmk,combos";
@@ -134,9 +125,9 @@ label= "BASE_APT"                          ;
  bindings = <
 // ╷           ╷           ╷           ╷           ╷           ╷           ╷   ╷           ╷           ╷           ╷           ╷           ╷           ╷
 
-                &kp W             &kp G       &kp D       &kp F       &kp B           &kp Q     &kp L         &kp U       &kp O       &kp Y
-                &mt_pinky LGUI R  &mt LALT S  &mt LSHFT T &mt LCTRL H &kp K           &kp J     &mt RCTRL N   &mt RSHFT E &mt RALT A  &mt_pinky RGUI I
-    &kp SEMI    &kp X             &kp C       &kp M       &kp P       &kp V           &kp Z     &kp COMMA     &kp DOT     &kp SQT     &kp FSLH     &to NAV
+                &kp W       &kp G       &kp D       &kp F       &kp B           &kp Q     &kp L         &kp U       &kp O       &kp Y
+                &mt LGUI R  &mt LALT S  &mt LSHFT T &mt LCTRL H &kp K           &kp J     &mt RCTRL N   &mt RSHFT E &mt RALT A  &mt RGUI I
+    &kp SEMI    &kp X       &kp C       &kp M       &kp P       &kp V           &kp Z     &kp COMMA     &kp DOT     &kp SQT     &kp FSLH     &to NAV
                                         &to SYM     &kp SPACE   &kp ESC               &kp RET   &to NUM       &kp TAB
                         >;
                 };
