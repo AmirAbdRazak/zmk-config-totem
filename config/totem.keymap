@@ -22,7 +22,7 @@
 #define FUN  3
 #define NAV 4
 #define GAME 5
-#define GNUM 6
+#define GPLUS 6
 #define NAVOH 7
 
 &mt {
@@ -77,13 +77,13 @@
                 bindings = <&kp RBRC>;
             };
             combo_colon {
-                timeout-ms = <30>;
+                timeout-ms = <50>;
                 key-positions = <3 4>;
                 layers = <0>;
                 bindings = <&kp COLON>;
             };
             combo_semicolon {
-                timeout-ms = <30>;
+                timeout-ms = <50>;
                 key-positions = <5 6>;
                 layers = <0>;
                 bindings = <&kp SEMI>;
@@ -188,9 +188,9 @@ label= "SYM"                               ;
  bindings = <
 // ╷           ╷           ╷           ╷           ╷           ╷           ╷   ╷           ╷           ╷           ╷           ╷           ╷           ╷
 
-                &trans   &kp GRAVE    &kp UNDER    &kp PLUS     &trans          &trans    &kp EXCL    &kp AT    &kp HASH    &trans       
+                &trans   &kp GRAVE    &kp UNDER    &kp MINUS     &trans         &trans    &kp EXCL    &kp AT    &kp HASH    &trans       
                 &kp LGUI &kp LALT     &kp LSHFT    &kp LCTRL    &trans          &trans    &kp DLLR    &kp PRCNT &kp CARET   &trans 
-    &trans      &trans   &kp TILDE    &kp EQUAL    &kp MINUS    &trans          &trans    &kp AMPS    &kp STAR  &trans      &trans   &trans         
+    &trans      &trans   &kp TILDE    &kp EQUAL    &kp PLUS    &trans           &trans    &kp AMPS    &kp STAR  &trans      &trans   &trans         
                                       &kp BSLH     &kp PIPE     &trans          &trans    &to BASE    &trans      
                         >;
                 };
@@ -213,9 +213,9 @@ label= "SYM"                               ;
  bindings = <
 // ╷           ╷           ╷           ╷           ╷           ╷           ╷   ╷           ╷           ╷           ╷           ╷           ╷           ╷
 
-                &sys_reset  &bt BT_CLR  &out OUT_USB &out OUT_BLE &trans          &kp DEL     &kp F7      &kp F8      &kp F9      &kp F12
-                &bootloader &kp LALT    &kp LSHFT    &kp LCTRL   &trans          &kp INS     &kp F4      &kp F5      &kp F6      &kp F11  
-    &trans      &trans      &trans      &bt BT_PRV   &bt BT_NXT  &trans                &trans      &kp F1      &kp F2      &kp F3      &kp F10     &trans         
+                &sys_reset  &bt BT_CLR  &out OUT_USB &out OUT_BLE &bt BT_SEL 0         &kp DEL     &kp F7      &kp F8      &kp F9      &kp F12
+                &bootloader &kp LALT    &kp LSHFT    &kp LCTRL   &bt BT_SEL 1          &kp INS     &kp F4      &kp F5      &kp F6      &kp F11  
+    &trans      &trans      &trans      &bt BT_PRV   &bt BT_NXT  &bt BT_SEL 2          &trans      &kp F1      &kp F2      &kp F3      &kp F10     &trans         
                                         &trans      &trans      &trans                 &trans      &trans      &trans      
                         >;
                 };
@@ -265,16 +265,16 @@ label= "GAME"                              ;
  bindings = <
 // ╷           ╷           ╷           ╷           ╷           ╷           ╷   ╷           ╷           ╷           ╷           ╷           ╷           ╷
 
-                &mo GNUM    &kp Q      &kp W       &kp E       &kp R            &none      &kp U        &kp I       &kp O       &none
-                &kp RET     &kp A      &kp S       &kp D       &kp F            &none      &kp J        &kp K       &kp L       &none
-    &kp LALT    &kp FSLH    &kp Z      &kp X       &kp C       &kp V            &none      &kp N        &kp M       &kp BSLH    &none        &none         
-                                       &kp LSHFT   &kp SPACE   &kp LCTRL        &none      &to BASE    &none      
+                &kp TAB    &kp Q      &kp W       &kp E       &kp R            &none      &kp U        &kp I       &kp O       &none
+                &kp T      &kp A      &kp S       &kp D       &kp F            &none      &kp J        &kp K       &kp L       &none
+    &kp LALT    &kp G      &kp Z      &kp X       &kp C       &kp V            &none      &kp N        &kp M       &kp BSLH    &none        &none         
+                                      &kp LSHFT   &mo GPLUS   &kp SPACE        &none      &to BASE    &none      
                         >;
                 };
 
-                game_num_layer {
+                game_plus_layer {
 // ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-label= "GAME NUM"                             ;
+label= "GAME PLUS"                             ;
 // ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
 //             ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓   ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓
 //             ┃ SOLO      ┃ TOGGLE IN ┃ RESET ROT ┃ TOGGLE OUT┃ TAKE SNAP ┃   ┃           ┃           ┃           ┃           ┃           ┃
@@ -288,10 +288,10 @@ label= "GAME NUM"                             ;
  bindings = <
 // ╷           ╷           ╷           ╷           ╷           ╷           ╷   ╷           ╷           ╷           ╷           ╷           ╷           ╷
 
-                &trans      &kp N1  &kp N2   &kp N3    &trans          &trans      &trans      &trans        &trans      &trans
-                &trans      &kp N4  &kp N5   &kp N6    &trans          &trans      &trans      &trans        &trans       &trans
-    &trans      &trans      &kp N7  &kp N8   &kp N9    &trans          &trans      &trans      &trans        &trans       &trans        &trans         
-                                       &trans      &trans       &trans          &trans      &trans      &trans      
+                &kp N1      &kp N2  &kp N3   &kp N4    &kp N5          &trans      &trans      &trans        &trans      &trans
+                &kp B       &trans  &trans   &trans    &kp Y          &trans      &trans      &trans        &trans       &trans
+    &trans      &kp TAB     &trans  &trans   &trans    &kp H          &trans      &trans      &trans        &trans       &trans        &trans         
+                               &trans      &trans       &trans          &trans      &trans      &trans      
                         >;
                 };
 
@@ -312,8 +312,8 @@ label= "ONE HAND NAV"                      ;
 // ╷           ╷           ╷           ╷           ╷           ╷           ╷   ╷           ╷           ╷           ╷           ╷           ╷           ╷
 
                 &trans      &kp HOME   &kp UP       &kp END     &kp LC(C)       &trans      &trans      &trans      &trans      &trans
-                &kp K_UNDO  &kp LEFT   &kp DOWN     &kp RIGHT   &kp LC(V)       &trans      &trans      &trans      &trans      &trans
-    &trans      &kp K_REDO  &kp PG_UP  &s_all       &kp PG_DN   &kp LC(X)       &trans      &trans      &trans      &trans      &trans     &trans
+                &kp LC(Z)   &kp LEFT   &kp DOWN     &kp RIGHT   &kp LC(V)       &trans      &trans      &trans      &trans      &trans
+    &trans      &kp LC(Y)   &kp PG_UP  &s_all       &kp PG_DN   &kp LC(X)       &trans      &trans      &trans      &trans      &trans     &trans
                                        &kp LSHFT    &kp SPACE   &kp ESC         &trans      &to BASE    &trans 
                         >;
                 };
