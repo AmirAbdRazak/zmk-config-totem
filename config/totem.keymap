@@ -138,8 +138,8 @@ label= "BASE_APT"                          ;
 
                 &kp W       &kp G       &kp D       &kp F       &kp B           &kp Q     &kp L         &kp U       &kp O       &kp Y
                 &kp R       &mt LALT S  &mt LSHFT T &mt LCTRL H &kp K           &kp J     &mt RCTRL N   &mt RSHFT E &mt RALT A  &kp I
-    &kp LGUI    &kp X       &kp C       &kp M       &kp P       &kp V           &kp Z     &kp COMMA     &kp DOT     &kp SQT     &kp FSLH     &to NAV
-                                        &sl NUM     &kp SPACE   &kp ESC               &kp RET   &sl SYM       &kp TAB
+    &kp LGUI    &kp X       &kp C       &kp M       &kp P       &kp V           &kp Z     &kp COMMA     &kp DOT     &kp SQT     &kp FSLH     &kp TAB
+                                        &sl NUM     &kp SPACE   &kp ESC               &kp RET   &sl SYM       &to NAV
                         >;
                 };
 
